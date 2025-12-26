@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00d2ff;
+            --yellow: #ffce00;
+            --pink: #ff005c;
+            --glass-bg: rgba(22, 27, 51, 0.85);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            /* Applying the background image to the full page */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1467810563316-b54769d7c3f9?q=80&w=2069');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps background still while scrolling */
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; /* Full screen height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 { font-weight: 300; letter-spacing: 2px; margin-bottom: 10px; }
+        
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6rem;
+            color: var(--yellow);
+            text-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+            margin: 0;
+        }
+
+        .countdown {
+            margin-top: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 15px 40px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        /* Explore Wishes Section */
+        .explore-section {
+            background: var(--glass-bg); /* Semi-transparent background for readability */
+            padding: 80px 10%;
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; }
+
+        .wish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border-left: 6px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        .family { border-left-color: var(--cyan); } .family h3 { color: var(--cyan); }
+        .friends { border-left-color: var(--yellow); } .friends h3 { color: var(--yellow); }
+        .inspire { border-left-color: var(--pink); } .inspire h3 { color: var(--pink); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h2>Wishing you a ...</h2>
+        <h1>Happy New Year!</h1>
+        <p style="max-width: 600px; font-size: 1.2rem;">May the coming year be filled with grand adventures and opportunities.</p>
+        <div class="countdown" id="timer">Loading...</div>
+    </section>
+
+    <section class="explore-section">
+        <h2 class="section-title">Explore Wishes</h2>
+        <div class="wish-grid">
+            <a href="family.html" class="card family">
+                <h3>For Family</h3>
+                <p>Heartfelt messages for your loved ones to start the year with warmth.</p>
+            </a>
+            <a href="friends.html" class="card friends">
+                <h3>For Friends</h3>
+                <p>Cheers to good times, new memories, and lifelong friendship!</p>
+            </a>
+            <a href="inspirational.html" class="card inspire">
+                <h3>Inspirational</h3>
+                <p>Motivational quotes to fuel your ambitions for the year ahead.</p>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Countdown to Jan 1, 2026
+        const countdownDate = new Date("Jan 1, 2026 00:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) { clearInterval(x); document.getElementById("timer").innerHTML = "HAPPY 2026!"; }
+        }, 1000);
+    </script>
+</body>
+</html>
