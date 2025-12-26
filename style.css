@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* This makes the image cover the full screen */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1467810563316-b54769d7c3f9?q=80&w=2069');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    background-repeat: no-repeat;
+    color: white;
+}
